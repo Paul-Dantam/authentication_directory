@@ -9,11 +9,12 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
-    "mongoose": "^4.11.8",
+    "mongoose": "4.10.8",
     "morgan": "^1.8.2",
     "mustache-express": "^1.2.5",
     "path": "^0.12.7"

@@ -11,7 +11,10 @@
 
 <body>
 
-    <nav class="navBar"><a class="navItem" href="/employment/employed" class="employed">Employed</a> <a class="navItem"  href="/employment/unemployed" class="unemployed">Looking For Work</a></nav>
+    <nav class="navBar"><a class="navItem" href="/employment/employed" class="employed">Employed</a> <a class="navItem"  href="/employment/unemployed" class="unemployed">Looking For Work</a>
+    
+    
+    </nav>
 
 
     <section class="wrapper">
@@ -22,7 +25,7 @@
 
             <h1 class="indexTitle">Index</h1>
 
-            {{#users}}
+            {{#robots}}
             <div class="returnItem">
                 <a href="/profile/{{_id}}"><img src="{{avatar}} " alt=" " class="avatar "></a>
                 <div class="name ">{{name}}</div>
@@ -32,7 +35,7 @@
                 <div class="nojob ">Available for hire</div>
                 {{/job}}
             </div>
-            {{/users}}
+            {{/robots}}
         </div>
 
 

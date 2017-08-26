@@ -1,16 +1,12 @@
 const express = require("express");
 const indexRoutes = express.Router();
-
-const mongoose = require("mongoose");
-const bluebird = require("bluebird");
-
-mongoose.Promise = bluebird;
+const Robot = require("../models/Robot");
 
 indexRoutes.get("/", (req, res) => {
-  Robots.find({}).toArray((err, foundRobots) => {
-    err
-      ? res.status(500).send(err)
-      : res.render("index", { users: foundRobots });
+  Robot.find().then(foundRobots => {
+    !foundRobots
+      ? res.status(500).send("No Robots Found.")
+      : res.render("index", { robots: foundRobots });
   });
 });
 

@@ -1,37 +1,31 @@
 const express = require("express");
 const profileRoutes = express.Router();
-
-const mongoose = require("mongoose");
-const bluebird = require("bluebird");
-
-mongoose.Promise = bluebird;
+const Robot = require("../models/Robot");
+const bcrypt = require("bcryptjs");
 
 profileRoutes.get("/:id", (req, res) => {
-  Robots.findOne({ _id: ObjectId(req.params.id) }, (err, foundRobot) => {
-    if (err) res.status(500).send(err);
-    if (!foundRobot) res.send("No User Found");
-    res.render("profile", { data: foundRobot });
+  Robot.findById(req.params.id).then(foundRobot => {
+    !foundRobot
+      ? res.status(500).send("This robot not found")
+      : res.render("profile", { robot: foundRobot });
   });
 });
 
-profileRoutes.get("/:skillName", (req, res) => {
-  Robots.find({ skills: req.params.skillName }).toArray((err, foundRobots) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.render("index", { users: foundRobots });
+profileRoutes.get("/skills/:skillName", (req, res) => {
+  Robot.find({ skills: req.params.skillName }).then(foundRobots => {
+    !foundRobots
+      ? res.status(500).send("No robots found")
+      : res.render("index", { robots: foundRobots });
   });
 });
 
-profileRoutes.get("/:countryName", (req, res) => {
-  Robots.find({
+profileRoutes.get("/country/:countryName", (req, res) => {
+  Robot.find({
     "address.country": req.params.countryName
-  }).toArray((err, foundRobots) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-
-    res.render("index", { users: foundRobots });
+  }).then(foundRobots => {
+    !foundRobots
+      ? res.status(500).send("No robots found")
+      : res.render("index", { robots: foundRobots });
   });
 });
 
