@@ -1,0 +1,30 @@
+{
+  "name": "dailyproject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.8",
+    "morgan": "^1.8.2",
+    "mustache-express": "^1.2.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul-Dantam/user_directory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Paul-Dantam/user_directory/issues"
+  },
+  "homepage": "https://github.com/Paul-Dantam/user_directory#readme",
+  "description": ""
+}
