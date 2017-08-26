@@ -4,6 +4,7 @@ const bluebird = require("bluebird");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const logger = require("morgan");
+const bcrypt = require("bcryptjs");
 const mustacheExpress = require("mustache-express");
 const path = require("path");
 const checkAuth = require("./middlewares/checkAuth");
@@ -11,7 +12,7 @@ const sessionConfig = require("./sessionConfig");
 const indexRoutes = require("./routes/indexRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const empRoutes = require("./routes/employmentRoutes");
-const authRoutes = require("./routes/");
+const authRoutes = require("./routes/authRoutes");
 
 const port = process.env.PORT || 8000;
 
