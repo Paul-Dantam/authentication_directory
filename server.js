@@ -11,6 +11,7 @@ const sessionConfig = require("./sessionConfig");
 const indexRoutes = require("./routes/indexRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const empRoutes = require("./routes/employmentRoutes");
+const authRoutes = require("./routes/");
 
 const port = process.env.PORT || 8000;
 
@@ -34,6 +35,7 @@ app.use(session(sessionConfig));
 app.use("/", indexRoutes);
 app.use("/profile", profileRoutes);
 app.use("/employment", empRoutes);
+app.use("/auth", authRoutes);
 
 app.listen(port, function() {
   console.log(`server is running on port ${port}!`);
