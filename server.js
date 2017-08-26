@@ -1,15 +1,23 @@
 const express = require("express");
-const path = require("path");
+const mongoose = require("mongoose");
+const bluebird = require("bluebird");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+const logger = require("morgan");
 const mustacheExpress = require("mustache-express");
-const port = process.env.PORT || 8000;
+const path = require("path");
 const indexRoutes = require("./routes/indexRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const empRoutes = require("./routes/employmentRoutes");
-const mongo = require("mongodb");
-const MongoClient = mongo.MongoClient;
-const ObjectId = mongo.ObjectID;
-const dbUrl = "mongodb://localhost:27017/userDirectory";
+
+const port = process.env.PORT || 8000;
+
 const app = express();
+
+mongoose.Promise = bluebird;
+
+mongoose.connect("mongodb://localhost:27017/userDirectory");
 
 //templating engine
 app.engine("mustache", mustacheExpress());

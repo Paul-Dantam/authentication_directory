@@ -8,10 +8,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "mongodb": "^2.2.31",
+    "express-session": "^1.15.5",
     "mongoose": "^4.11.8",
     "morgan": "^1.8.2",
     "mustache-express": "^1.2.5",
@@ -20,11 +21,11 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Paul-Dantam/user_directory.git"
+    "url": "git+https://github.com/Paul-Dantam/authentication_directory.git"
   },
   "bugs": {
-    "url": "https://github.com/Paul-Dantam/user_directory/issues"
+    "url": "https://github.com/Paul-Dantam/authentication_directory/issues"
   },
-  "homepage": "https://github.com/Paul-Dantam/user_directory#readme",
+  "homepage": "https://github.com/Paul-Dantam/authentication_directory#readme",
   "description": ""
 }
