@@ -21,7 +21,11 @@ const robotSchema = new Schema({
     type: String,
     required: true
   },
-  avatar: String,
+  avatar: {
+    type: String,
+    default:
+      "https://robohash.org/blanditiisexercitationemquaerat.png?size=150x150&set=set1"
+  },
   university: String,
   job: String,
   company: String,

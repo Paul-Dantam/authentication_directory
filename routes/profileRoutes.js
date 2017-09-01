@@ -3,24 +3,6 @@ const profileRoutes = express.Router();
 const Robot = require("../models/Robot");
 const bcrypt = require("bcryptjs");
 
-// profileRoutes.get("/updatemany", (req, res) => {
-//   let allRobots;
-//   Robot.find().then(function(foundRobots) {
-//     allRobots = foundRobots;
-//     console.log("allRobots: ", allRobots.length);
-//     let salt = bcrypt.genSaltSync(10);
-//     let password = bcrypt.hashSync("password", salt);
-//     Robot.update({}, { $set: { password: password } }, { multi: true })
-//       .then(function(updatedRobots) {
-//         res.send(updatedRobots);
-//         console.log("updatedRobots: ", updatedRobots);
-//       })
-//       .catch(function(err) {
-//         if (!updatedRobots) res.status(500).send("Error saving Robots!");
-//       });
-//   });
-// });
-
 profileRoutes.get("/:id", (req, res) => {
   Robot.findById(req.params.id).then(foundRobot => {
     !foundRobot

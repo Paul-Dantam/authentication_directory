@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+<body>
+    {{#robot}}
+    <section class="profilewrapper">
+        <div class="profilecontainer">
+            <div class="profileTop">
+                <div class="imgcontainer">
+                    <img class="profilePic" src="{{avatar}}" alt="No avatar Submitted">
+                </div>
+                <div class="userInfo">
+                    <h1 class="indexName">{{name}}</h1>
+                    <div class="userLocation">{{#address.city}}{{address.city}}, {{/address.city}}<a href="/profile/country/{{address.country}}" class="countryLink">{{address.country}}</a>|
+                        {{#job}}{{job}}, {{company}}{{/job}}</div>{{^job}}
+                    <div class="nojob">Available for hire</div>{{/job}}
+                    <div class="contactInfo">{{email}} | {{phone}}</div>
+                </div>
+
+            </div>
+
+            <div class="profileBottom">
+
+                <div class="leftBot">
+                    {{#university}}
+                    <div class="ednskills">Education</div>
+                    {{/university}} {{^university}} {{/university}}
+                    <div class="ednskills">Skills</div>
+                </div>
+
+                <div class="rightBot">
+                    {{#university}}
+                    <div class="ed">{{.}}</div>
+                    {{/university}} {{^university}} {{/university}} {{#skills}}
+                    <div class="skills"><a href="/profile/skills/{{.}}" class="skillLink">{{.}}</a></div>{{/skills}}
+                </div>
+            </div>
+        </div>
+
+
+
+    <form action="/user/edit/{{_id}}" method="post">
+        <label for="">Name</label><input type="text" name="name" placeholder="Your Name" required><br>
+        <label for="">UserName</label><input type="text" name="username" placeholder="Your Username" required><br>
+        <label for="">Email</label><input type="email" name="email" placeholder="yourEmail@Email.com" required><br>
+        <label for="">Password</label><input type="password" name="password" placeholder="Your Password" required><br>
+        <label for="">Avatar</label><input type="text" name="avatar" placeholder="your avatar here"><br>
+        <label for="">University</label><input type="text" name="university"><br>
+        <label for="">Job</label><input type="text" name="job"><br>
+        <label for="">Company</label><input type="text" name="company"><br>
+        <label for="">Skills</label><input type="text" name="skills" required><br>
+        <label for="">Phone</label><input type="text" name="phone" required><br>
+        <label for="">City</label><input type="text" name="address.city"><br>
+        <label for="">Country</label><input type="text" name="address.country" required><br>
+        <button type="submit">Edit your info</button>
+
+    </form>
+
+
+    </section>
+
+
+
+    {{/robot}}
+
+
+</body>
+
+</html>
